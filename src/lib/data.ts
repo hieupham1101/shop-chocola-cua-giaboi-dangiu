@@ -197,11 +197,16 @@ export const PRODUCTS: Product[] = [
     },
 ];
 
+import musicCover1 from "../../public/assets/music/music-1.jpg";
+import musicCover2 from "../../public/assets/music/music-2.jpg";
+import musicCover3 from "../../public/assets/music/music-3.jpg";
+
 export const PLAYLISTS = [
     {
         id: "m1",
         title: "50/50 or 100%",
         mood: "Bội Rapper",
+        cover: musicCover1,
         color: "bg-pink-300",
         length: "12",
         audioSrc: "/music/track-1.mp3",
@@ -210,6 +215,7 @@ export const PLAYLISTS = [
         id: "m2",
         title: "Em gái nắng",
         mood: "Hương Bội",
+        cover: musicCover2,
         color: "bg-amber-900",
         length: "52",
         audioSrc: "/music/track-2.mp3",
@@ -218,6 +224,7 @@ export const PLAYLISTS = [
         id: "m3",
         title: "Lost connection",
         mood: "Bội Dominic",
+        cover: musicCover3,
         color: "bg-yellow-200",
         length: "48",
         audioSrc: "/music/track-3.mp3",

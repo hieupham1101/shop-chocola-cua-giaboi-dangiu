@@ -6,6 +6,7 @@ import { Play, Pause, Disc, SkipBack, SkipForward, X } from "lucide-react";
 import { PLAYLISTS } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 
 interface MusicClientProps {
     teaserMode?: boolean;
@@ -175,12 +176,27 @@ export default function MusicClient({ teaserMode = false }: MusicClientProps) {
                                     isCurrentTrack ? "border-pink-400 bg-white/60 shadow-md ring-1 ring-pink-200" : "border-white/50"
                                 )}
                             >
-                                <div className={cn("w-full aspect-square rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden shadow-inner transition-colors", playlist.color)}>
+                                <div className="w-full aspect-square rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden shadow-inner bg-gray-100">
+                                    {playlist.cover ? (
+                                        <Image
+                                            src={playlist.cover}
+                                            alt={playlist.title}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                    ) : (
+                                        <div className={cn("absolute inset-0", playlist.color)} />
+                                    )}
+
                                     <div className="absolute inset-0 bg-black/10" />
-                                    <Disc className={cn("text-white/80 w-24 h-24 transition-all duration-700", isRunning && "animate-spin-[4s]")} />
+
+                                    {/* Overlay Disc Icon if needed or just keep controls */}
+                                    {!playlist.cover && (
+                                        <Disc className={cn("text-white/80 w-24 h-24 transition-all duration-700 relative z-10", isRunning && "animate-spin-[4s]")} />
+                                    )}
 
                                     <div className={cn(
-                                        "absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[2px] transition-opacity duration-300",
+                                        "absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[2px] transition-opacity duration-300 z-20",
                                         isCurrentTrack ? "opacity-100" : "opacity-0 group-hover:opacity-100"
                                     )}>
                                         <div
@@ -231,8 +247,20 @@ export default function MusicClient({ teaserMode = false }: MusicClientProps) {
                         <div className="bg-white/80 backdrop-blur-xl border border-white/50 rounded-2xl shadow-2xl p-4 flex flex-col gap-3 ring-1 ring-black/5">
                             <div className="flex items-center gap-4">
                                 {/* Thumbnail */}
-                                <div className={cn("w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 flex-shrink-0 relative overflow-hidden", currentTrack.color)}>
-                                    <Disc className={cn("w-8 h-8 text-white/90", isPlaying && "animate-spin-[3s]")} />
+                                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 flex-shrink-0 relative overflow-hidden">
+                                    {currentTrack.cover ? (
+                                        <Image
+                                            src={currentTrack.cover}
+                                            alt={currentTrack.title}
+                                            fill
+                                            className={cn("object-cover", isPlaying && "animate-spin-[4s] rounded-full")}
+                                        />
+                                    ) : (
+                                        <div className={cn("absolute inset-0", currentTrack.color)} />
+                                    )}
+                                    {!currentTrack.cover && (
+                                        <Disc className={cn("w-8 h-8 text-white/90 relative z-10", isPlaying && "animate-spin-[3s]")} />
+                                    )}
                                 </div>
 
                                 {/* Info */}
