@@ -7,10 +7,14 @@ export function buildProductImagePaths(slug: string, galleryCount = 4) {
         return `${basePath}/g-${num}.jpg`;
     });
 
-    return {
+    const paths = {
         cover: `${basePath}/cover.jpg`,
         gallery
     };
+
+    console.log(`[ImageUtils] Built paths for slug: ${slug}`, paths);
+
+    return paths;
 }
 
 export const BANNER_PATHS = {

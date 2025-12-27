@@ -24,6 +24,7 @@ export default function ProductGridCard({ product }: ProductGridCardProps) {
                             alt={product.name}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            onError={(e) => console.error(`[ProductGridCard] Failed to load image for ${product.name}:`, e.currentTarget.src)}
                         />
                         {/* Hover Overlay Actions (Desktop) */}
                         <div className="absolute bottom-3 right-3 flex gap-2 translate-y-20 group-hover:translate-y-0 transition-transform duration-300 z-10 md:flex hidden">

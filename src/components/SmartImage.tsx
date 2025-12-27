@@ -5,7 +5,7 @@ import Image, { ImageProps } from "next/image";
 import { cn } from "@/lib/utils";
 import { Sparkles } from "lucide-react";
 
-interface SmartImageProps extends Omit<ImageProps, "onError"> {
+interface SmartImageProps extends ImageProps {
     fallbackText?: string;
     containerClassName?: string;
 }
@@ -16,6 +16,7 @@ export default function SmartImage({
     fallbackText,
     containerClassName,
     className,
+    onError, // Destructure onError
     ...props
 }: SmartImageProps) {
     const [error, setError] = useState(false);
@@ -46,8 +47,14 @@ export default function SmartImage({
             <Image
                 src={src}
                 alt={alt}
-                onError={() => setError(true)}
-                onLoad={() => setIsLoading(false)}
+                onError={(e) => {
+                    if (onError) onError(e);
+                    setError(true);
+                }}
+                onLoad={(e) => {
+                    setIsLoading(false);
+                    if (props.onLoad) props.onLoad(e);
+                }}
                 className={cn(
                     className,
                     "transition-opacity duration-500",
