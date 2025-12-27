@@ -4,25 +4,25 @@ export const BANNERS = [
     {
         id: "b1",
         imageSrc: BANNER_PATHS.banner1,
-        eyebrow: "Chocolate Therapy",
-        title: "Melting Moments of Pure Joy",
-        subtitle: "Experience the profound connection between taste and emotion with our handcrafted selection.",
+        eyebrow: "Liệu Pháp Ngọt Ngào", // Chocolate Therapy
+        title: "Tan Chảy Trong Từng Khoảnh Khắc", // Melting Moments of Pure Joy
+        subtitle: "Nơi hương vị và cảm xúc hòa quyện, nhẹ nhàng vỗ về tâm hồn em sau những ngày dài.", // Experience the profound connection...
         align: "left",
     },
     {
         id: "b2",
         imageSrc: BANNER_PATHS.banner2,
-        eyebrow: "Sensory Awakening",
-        title: "Origins of the Sacred Earth",
-        subtitle: "Sourced from the heart of the Amazon, where cacao is more than a fruit—it's a ritual.",
+        eyebrow: "Đánh Thức Giác Quan", // Sensory Awakening
+        title: "Hương Vị Nguyên Bản Từ Đất Mẹ", // Origins of the Sacred Earth
+        subtitle: "Được chắt chiu từ những hạt cacao tinh túy nhất, nơi mỗi thanh socola là một câu chuyện kể về thiên nhiên.", // Sourced from the heart of the Amazon...
         align: "center",
     },
     {
         id: "b3",
         imageSrc: BANNER_PATHS.banner3,
-        eyebrow: "Healing Rituals",
-        title: "Harmony in Every Bite",
-        subtitle: "Infused with calming botanicals to restore your inner balance and serenity.",
+        eyebrow: "Nghi Thức Chữa Lành", // Healing Rituals
+        title: "Tìm Lại Sự Cân Bằng & An Yên", // Harmony in Every Bite
+        subtitle: "Thả lỏng tâm trí với hương vị thảo mộc dịu nhẹ, để mọi âu lo tan biến theo vị ngọt.", // Infused with calming botanicals...
         align: "right",
     },
 ];
