@@ -1,20 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Toaster } from "sonner";
-import CartDrawer from "@/components/cart/CartDrawer";
-import CartButtonFloating from "@/components/cart/CartButtonFloating";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
-  title: "Chocolat de Luxe | Premium Healing Sweets",
-  description: "Experience the healing power of premium chocolate.",
+  title: "Project đã ngưng phát triển",
+  description: "Dự án này đã ngừng phát triển.",
 };
 
 export default function RootLayout({
@@ -23,17 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={cn(
-          inter.variable,
-          "antialiased min-h-screen relative selection:bg-pink-300 selection:text-amber-900"
-        )}
-      >
-        {children}
-        <CartDrawer />
-        <CartButtonFloating />
-        <Toaster position="top-center" richColors />
+    <html lang="vi">
+      <body className="bg-black text-white h-screen w-screen flex items-center justify-center overflow-hidden m-0">
+        <h1 className="text-3xl md:text-5xl font-bold">Project đã ngưng phát triển.</h1>
       </body>
     </html>
   );
